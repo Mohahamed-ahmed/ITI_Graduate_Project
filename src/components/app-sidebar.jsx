@@ -28,7 +28,7 @@ const items = [
     {
         title: 'Manage Packages',
         icon: PersonStanding,
-        href: '/dashboard/packages'
+        href: '/dashboard/packs'
     }
 ]
 

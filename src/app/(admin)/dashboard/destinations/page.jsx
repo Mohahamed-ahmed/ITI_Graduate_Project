@@ -14,7 +14,6 @@ export default function ManageDestinationsPage() {
                     title="Create Destination"
                     description="Enter your destination details below."
                     createClassName="bg-orange-600 text-white hover:bg-orange-700 hover:text-white font-semibold  rounded-lg"
-                    packages
                 >
                 + Create
                 </Modal>
