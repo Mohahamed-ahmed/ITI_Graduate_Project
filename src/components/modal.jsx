@@ -1,6 +1,6 @@
 import { Button } from "./ui/button"
-import { Label } from "./ui/label"
-import { Input } from "./ui/input"
+import DestinationForm from "./destination-form"
+import PackageForm from "./package-form"
 import {
     Dialog,
     DialogClose,
@@ -25,18 +25,7 @@ export default function Modal({title, description, createClassName, packages=fal
                         </DialogDescription>
                     </DialogHeader>
                     <div className="grid gap-4 py-4">
-                        <div className="grid gap-2">
-                            <Label htmlFor="name">name</Label>
-                            <Input id="name" type="text" />
-                        </div>
-                        <div className="grid gap-2">
-                            <Label htmlFor="description">description</Label>
-                            <Input id="description" type="text" />
-                        </div>
-                        <div className="grid gap-2">
-                            <Label htmlFor="image">image</Label>
-                            <Input id="image" type="file" />
-                        </div>
+                        {packages ? <PackageForm /> : <DestinationForm />}
                     </div>
                     <DialogFooter>
                         <DialogClose asChild>

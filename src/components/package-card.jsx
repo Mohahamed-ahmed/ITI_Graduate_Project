@@ -1,20 +1,25 @@
 import Image from "next/image"
 import Modal from "./modal"
 import img from '../../public/istockphoto-466090186-612x612.jpg'
-export default function DestinationCard({ show = false }) {
+export default function PackageCard({ show = false }) {
     return(
-        <div className="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+        <div className="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition w-[350px]">
             <Image src={img} alt="Cairo" className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"/>
-            <div className="p-4 mt-4">
-                <h3 className="text-xl font-semibold mb-2">Cairo</h3>
-                <p className="text-gray-600 mb-4">Discover the bustling capital of Egypt, home to the iconic Pyramids of Giza and the Sphinx.</p>
+            <div className="p-4">
+                <h3 className="text-xl font-semibold mb-2">Safari Experience</h3>
+                <p className="text-gray-600 mb-4 ">Serengeti, Tanzania</p>
+            </div>
+            <div className="flex items-center justify-between p-2">
+                <p className="ml-2">7 Days</p>
+                <p className="px-4 py-2 text-orange-600">$2,500</p>
             </div>
             {show && (
                 <div className="flex w-full justify-between">
                     <Modal 
-                        title="Edit Destination"
-                        description="Update your destination details below."
-                        createClassName="bg-white text-black hover:bg-gray-200 px-1 py-1 transition duration-300 rounded-md mx-4 mb-4"
+                        title="Edit Package"
+                        description="Update your package details below."
+                        createClassName="bg-white text-black hover:bg-gray-200 px-1 py-1 transition duration-300 rounded-md mx-4 mb-4 w-[50px]"
+                        packages
                     >
                     Edit 
                     </Modal>
