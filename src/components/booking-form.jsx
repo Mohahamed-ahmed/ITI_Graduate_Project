@@ -118,7 +118,7 @@ export default function BookingForm() {
 
         {/* Submit */}
         <Form.Submit asChild>
-          <button className="w-full py-4 rounded-xl font-bold mt-4 shadow-lg active:scale-[0.97] transition-all bg-primary text-primary-foreground shadow-[0_10px_20px_var(--color-primary)/20]">
+          <button className="w-full py-4 rounded-xl font-bold mt-4 active:scale-[0.97] transition-all bg-primary text-primary-foreground shadow-[0_10px_20px_var(--color-primary)/20] cursor-pointer">
             Confirm My Booking
           </button>
         </Form.Submit>
