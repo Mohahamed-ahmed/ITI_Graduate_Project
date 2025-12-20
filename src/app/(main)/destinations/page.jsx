@@ -2,7 +2,7 @@ import { DestinationMainCard } from "@/components/destination-main-card";
 
 export default function DestinationsPage() {
   return (
-    <main className="bg-(--background)">
+    <main className="bg-background">
       <section className="container mx-auto py-8 md:py-16 px-4 sm:px-6 lg:px-8">
         <div>
           <div className="mb-12">
