@@ -1,14 +1,14 @@
-import Link from "next/link"
+import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-foreground text-background py-12 px-4 sm:px-6 lg:px-8  bottom-0 w-full">
+    <footer className="bg-card text-foreground py-12 px-4 sm:px-6 lg:px-8 border-t border-border">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-fit p-1 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-background font-bold">TWU</span>
+                <span className="text-primary-foreground font-bold">TWU</span>
               </div>
               <span className="font-bold">Travel With Us</span>
             </div>
@@ -65,10 +65,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-background/20 pt-8 text-center text-sm opacity-80">
+        <div className="border-t border-border/20 pt-8 text-center text-sm opacity-80">
           <p>&copy; 2025 Egypt Travels. All rights reserved.</p>
         </div>
       </div>
     </footer>
-  )
+  );
 }

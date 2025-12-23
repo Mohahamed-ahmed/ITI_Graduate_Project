@@ -8,8 +8,8 @@ export default function BookFormPage() {
       <section className="container mx-auto py-8 md:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8">
-            <nav className="mb-3 text-sm text-muted-(--foreground)">
-              <Link href="/packs/aswan-1" className="text-red-500 hover:underline">
+            <nav className="mb-3 text-sm text-muted-foreground">
+              <Link href="/packs/aswan-1" className="text-primary hover:underline">
                 ← Back to Package
               </Link>
             </nav>

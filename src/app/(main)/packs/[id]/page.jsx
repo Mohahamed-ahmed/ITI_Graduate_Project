@@ -1,13 +1,13 @@
-"use client"
+"use client";
 import { allPackages } from "@/lib/mock-data";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { Check } from "lucide-react";
 
 export default function PackageDetailPage() {
-  const params = useParams()
-  const router = useRouter()
-  const pkg = allPackages.find((p) => p.id === params.id)
+  const params = useParams();
+  const router = useRouter();
+  const pkg = allPackages.find((p) => p.id === params.id);
 
   if (!pkg) {
     return (
@@ -17,7 +17,7 @@ export default function PackageDetailPage() {
         </div>
         <Footer />
       </>
-    )
+    );
   }
 
   return (
@@ -25,7 +25,7 @@ export default function PackageDetailPage() {
       <main className="min-h-screen">
         <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
           <div className="max-w-4xl mx-auto">
-            <Link href="/packs" className="text-orange-600 hover:underline mb-6 inline-block">
+            <Link href="/packs" className="text-primary hover:underline mb-6 inline-block">
               ← Back to Packages
             </Link>
 
@@ -52,7 +52,7 @@ export default function PackageDetailPage() {
                     </div>
                     <div>
                       <p className="text-muted-foreground text-sm">Price</p>
-                      <p className="font-semibold text-orange-600 text-lg">${pkg.price}</p>
+                      <p className="font-semibold text-primary text-lg">${pkg.price}</p>
                     </div>
                   </div>
 
@@ -64,7 +64,7 @@ export default function PackageDetailPage() {
                     <ul className="space-y-3">
                       {pkg.includes.map((item, idx) => (
                         <li key={idx} className="flex items-center gap-3">
-                          <Check className="text-orange-600" size={20} />
+                          <Check className="text-primary" size={20} />
                           <span className="text-foreground">{item}</span>
                         </li>
                       ))}
@@ -74,7 +74,7 @@ export default function PackageDetailPage() {
               </div>
 
               <div>
-                <div className="bg-linear-to-r from-orange-500 via-accent to-orange-700 rounded-lg p-8 text-primary-foreground sticky top-24">
+                <div className="bg-linear-to-r from-primary via-accent to-primary rounded-lg p-8 text-primary-foreground sticky top-24">
                   <div className="mb-8">
                     <p className="text-sm opacity-90 mb-2">Total Price</p>
                     <p className="text-4xl font-bold">${pkg.price}</p>
@@ -82,14 +82,14 @@ export default function PackageDetailPage() {
                   </div>
 
                   <Link href={`/booking/${pkg.id}`}>
-                    <button className="w-full bg-white text-primary font-bold py-3 rounded-lg hover:shadow-lg transition mb-4">
+                    <button className="w-full bg-card text-primary font-bold py-3 rounded-lg hover:shadow-lg transition mb-4">
                       Book Now
                     </button>
                   </Link>
 
                   <button
                     onClick={() => router.back()}
-                    className="w-full border-2 border-white text-white font-semibold py-3 rounded-lg hover:bg-white/10 transition"
+                    className="w-full border-2 border-card text-card-foreground font-semibold py-3 rounded-lg hover:bg-muted transition"
                   >
                     View Other Packages
                   </button>
@@ -105,5 +105,5 @@ export default function PackageDetailPage() {
         </section>
       </main>
     </>
-  )
+  );
 }

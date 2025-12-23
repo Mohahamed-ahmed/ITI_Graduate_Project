@@ -1,4 +1,3 @@
-/* start */
 @import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));

@@ -1,19 +1,19 @@
-"use client"
+"use client";
 import { allPackages } from "@/lib/mock-data";
 import { useState } from "react";
 import Link from "next/link";
 
 export default function Packages() {
-    const [sortBy, setSortBy] = useState("name")
+  const [sortBy, setSortBy] = useState("name");
 
   const sorted = [...allPackages].sort((a, b) => {
-    if (sortBy === "price-low") return a.price - b.price
-    if (sortBy === "price-high") return b.price - a.price
-    return a.name.localeCompare(b.name)
-  })
-    return(
+    if (sortBy === "price-low") return a.price - b.price;
+    if (sortBy === "price-high") return b.price - a.price;
+    return a.name.localeCompare(b.name);
+  });
+  return (
     <>
-     <main className="min-h-screen">
+      <main className="min-h-screen">
         <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
           <div className="max-w-7xl mx-auto">
             <div className="mb-8">
@@ -44,7 +44,7 @@ export default function Packages() {
                         alt={pkg.name}
                         className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
                       />
-                      <div className="absolute top-4 right-4 bg-orange-600 text-gray-100 px-3 py-1 rounded-full text-sm font-semibold">
+                      <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold">
                         ${pkg.price}
                       </div>
                     </div>
@@ -65,5 +65,5 @@ export default function Packages() {
         </section>
       </main>
     </>
-    )
+  );
 }

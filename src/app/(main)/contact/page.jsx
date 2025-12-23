@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { Mail, Phone, MapPin } from "lucide-react"
-import { useState } from "react"
+import { Mail, Phone, MapPin } from "lucide-react";
+import { useState } from "react";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -9,31 +9,31 @@ export default function ContactPage() {
     email: "",
     subject: "",
     message: "",
-  })
+  });
 
-  const [successMessage, setSuccessMessage] = useState("")
+  const [successMessage, setSuccessMessage] = useState("");
 
   const handleChange = (e) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
-    }))
-  }
+    }));
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     try {
-    /*  */
-      setSuccessMessage("Your message has been sent successfully!")
-      setFormData({ name: "", email: "", subject: "", message: "" }) 
-      setTimeout(() => setSuccessMessage(""), 5000)
+      /*  */
+      setSuccessMessage("Your message has been sent successfully!");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      setTimeout(() => setSuccessMessage(""), 5000);
     } catch (error) {
-      console.error(error)
-      setSuccessMessage("Failed to send message. Please try again.")
-      setTimeout(() => setSuccessMessage(""), 5000)
+      console.error(error);
+      setSuccessMessage("Failed to send message. Please try again.");
+      setTimeout(() => setSuccessMessage(""), 5000);
     }
-  }
+  };
 
   return (
     <main className="min-h-screen">
@@ -46,8 +46,8 @@ export default function ContactPage() {
             </p>
           </div>
 
-        {/*************** Contact Info Cards ************************/}
-          
+          {/*************** Contact Info Cards ************************/}
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {/*******Email card *********/}
             <div className="bg-card rounded-lg p-8 shadow-md text-center">
@@ -155,63 +155,63 @@ export default function ContactPage() {
                 </button>
               </form>
 
-               {/* Toast Message */}
-             {successMessage && (
-             <div
-              className="fixed bottom-4 left-4 bg-green-500 text-white p-4 rounded shadow-lg cursor-pointer z-50"
-              onClick={() => setSuccessMessage("")}
-              >
-              {successMessage}
-            </div>
-           )}
+              {/* Toast Message */}
+              {successMessage && (
+                <div
+                  className="fixed bottom-4 left-4 bg-accent text-accent-foreground p-4 rounded shadow-lg cursor-pointer z-50"
+                  onClick={() => setSuccessMessage("")}
+                >
+                  {successMessage}
+                </div>
+              )}
             </div>
 
             {/***** Faq ********/}
             <div className="space-y-8">
-                <div className="bg-gradient-to-br from-primary to-accent rounded-lg p-8 text-primary-foreground">
-                  <h3 className="text-xl font-bold mb-4">Frequently Asked Questions</h3>
-                  <div className="space-y-4 text-sm">
-                    <div>
-                      <p className="font-semibold mb-2">What's included in the packages?</p>
-                      <p className="opacity-80">
-                        Each package includes accommodation, guided tours, and specified meals. See package details for
-                        specifics.
-                      </p>
-                    </div>
-                    <div>
-                      <p className="font-semibold mb-2">Can I customize a package?</p>
-                      <p className="opacity-80">Contact us to discuss custom itineraries tailored to your interests.</p>
-                    </div>
-                    <div>
-                      <p className="font-semibold mb-2">What's your cancellation policy?</p>
-                      <p className="opacity-80">
-                        Free cancellation up to 7 days before departure. Terms vary by package.
-                      </p>
-                    </div>
+              <div className="bg-linear-to-br from-primary to-accent rounded-lg p-8 text-primary-foreground">
+                <h3 className="text-xl font-bold mb-4">Frequently Asked Questions</h3>
+                <div className="space-y-4 text-sm">
+                  <div>
+                    <p className="font-semibold mb-2">What's included in the packages?</p>
+                    <p className="opacity-80">
+                      Each package includes accommodation, guided tours, and specified meals. See package details for
+                      specifics.
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-semibold mb-2">Can I customize a package?</p>
+                    <p className="opacity-80">Contact us to discuss custom itineraries tailored to your interests.</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold mb-2">What's your cancellation policy?</p>
+                    <p className="opacity-80">
+                      Free cancellation up to 7 days before departure. Terms vary by package.
+                    </p>
                   </div>
                 </div>
-
-                <div className="bg-secondary rounded-lg p-8 text-secondary-foreground">
-                  <h3 className="text-xl font-bold mb-4">Best Time to Visit</h3>
-                  <ul className="space-y-2 text-sm">
-                    <li>
-                      <strong>November - February:</strong> Ideal weather, mild temperatures
-                    </li>
-                    <li>
-                      <strong>March - May:</strong> Spring season, fewer crowds
-                    </li>
-                    <li>
-                      <strong>June - September:</strong> Hot season, best discounts
-                    </li>
-                    <li>
-                      <strong>October:</strong> Pleasant weather, perfect for exploration
-                    </li>
-                  </ul>
-                </div>
               </div>
+
+              <div className="bg-secondary rounded-lg p-8 text-secondary-foreground">
+                <h3 className="text-xl font-bold mb-4">Best Time to Visit</h3>
+                <ul className="space-y-2 text-sm">
+                  <li>
+                    <strong>November - February:</strong> Ideal weather, mild temperatures
+                  </li>
+                  <li>
+                    <strong>March - May:</strong> Spring season, fewer crowds
+                  </li>
+                  <li>
+                    <strong>June - September:</strong> Hot season, best discounts
+                  </li>
+                  <li>
+                    <strong>October:</strong> Pleasant weather, perfect for exploration
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
     </main>
-  )
+  );
 }

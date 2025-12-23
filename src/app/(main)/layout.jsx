@@ -21,12 +21,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <>
-        <Header />
-        <main className="flex-1">
-            {children}
-        </main>
-        <Footer />
+      <Header />
+      <main className="flex-1">{children}</main>
+      <Footer />
     </>
-      
   );
 }
