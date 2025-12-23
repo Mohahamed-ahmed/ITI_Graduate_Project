@@ -8,14 +8,12 @@ export default function ManageDestinationsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold mb-6">Manage Destinations</h1>
-          <p className="mb-4">
-            Here you can add, edit, or remove travel destinations.
-          </p>
+          <p className="mb-4">Here you can add, edit, or remove travel destinations.</p>
         </div>
         <div>
           <Link
             href="/dashboard/destinations/create-destination"
-            className="bg-orange-600 text-white hover:bg-orange-700 hover:text-white font-semibold rounded-lg py-2 px-4 flex items-center"
+            className="bg-primary text-primary-foreground hover:opacity-90 hover:text-primary-foreground font-semibold rounded-lg py-2 px-4 flex items-center"
           >
             <Plus className="mr-2 h-4 w-4" />
             Create

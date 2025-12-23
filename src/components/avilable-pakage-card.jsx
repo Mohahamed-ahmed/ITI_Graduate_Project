@@ -12,7 +12,7 @@ export default function AvailablePackageCard({
     <div
       role="button"
       tabIndex={0}
-      className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer group h-full"
+      className="bg-card rounded-lg overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer group h-full"
     >
       <div className="relative h-64 overflow-hidden bg-muted">
         <Image
@@ -27,11 +27,11 @@ export default function AvailablePackageCard({
         <p className="text-foreground text-sm mb-4 line-clamp-2">{description}</p>
         <div className="flex justify-between items-center mb-4">
           <span className="text-sm text-muted-foreground">{duration}</span>
-          <span className="text-red-500 font-bold text-lg">{price}</span>
+          <span className="text-primary font-bold text-lg">{price}</span>
         </div>
         <div className="text-xs text-muted-foreground">
           <p className="mb-2">{groupSize}</p>
-          <p className="text-red-500 font-semibold">View Details →</p>
+          <p className="text-primary font-semibold">View Details →</p>
         </div>
       </div>
     </div>

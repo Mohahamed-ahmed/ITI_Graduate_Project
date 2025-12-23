@@ -1,15 +1,5 @@
 import { Button } from "@/components/ui/button";
-import {
-  Calendar,
-  Mail,
-  Phone,
-  User,
-  MapPin,
-  Users,
-  DollarSign,
-  Package,
-  ArrowLeft,
-} from "lucide-react";
+import { Calendar, Mail, Phone, User, MapPin, Users, DollarSign, Package, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
 const mockReservation = {
@@ -29,12 +19,7 @@ const mockReservation = {
   specialRequests: "Vegetarian meals, Early check-in if possible",
   packageDetails: {
     duration: 7,
-    activities: [
-      "Beach relaxation",
-      "Temple tours",
-      "Surfing lessons",
-      "Spa treatments",
-    ],
+    activities: ["Beach relaxation", "Temple tours", "Surfing lessons", "Spa treatments"],
     accommodation: "5-star beachfront resort",
     mealsIncluded: "Breakfast & Dinner",
   },
@@ -46,19 +31,17 @@ export default function ReservationDetailPage() {
       <h1 className="text-2xl font-bold mb-4">Reservation Details</h1>
       <div className="grid gap-6 lg:grid-cols-2">
         {/* Customer Information */}
-        <div className="bg-white rounded-md p-4 shadow-sm border ">
+        <div className="bg-card rounded-md p-4 shadow-sm border ">
           <div className="mb-4">
             <div className="flex items-center gap-2">
-              <User className="h-5 w-5 text-orange-600" />
+              <User className="h-5 w-5 text-primary" />
               Customer Information
             </div>
           </div>
           <div className="space-y-4">
             <div>
               <p className="text-sm text-muted-foreground">Full Name</p>
-              <p className="text-base font-medium">
-                {mockReservation.customerName}
-              </p>
+              <p className="text-base font-medium">{mockReservation.customerName}</p>
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Email Address</p>
@@ -85,51 +68,41 @@ export default function ReservationDetailPage() {
         </div>
 
         {/* Booking Information */}
-        <div className="bg-white rounded-md p-4 shadow-sm border">
+        <div className="bg-card rounded-md p-4 shadow-sm border">
           <div className="mb-4">
             <div className="flex items-center gap-2">
-              <Calendar className="h-5 w-5 text-orange-600" />
+              <Calendar className="h-5 w-5 text-primary" />
               Booking Information
             </div>
           </div>
           <div className="space-y-4">
             <div>
               <p className="text-sm text-muted-foreground">Booking Date</p>
-              <p className="text-base font-medium">
-                {mockReservation.bookingDate}
-              </p>
+              <p className="text-base font-medium">{mockReservation.bookingDate}</p>
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Travel Date</p>
-              <p className="text-base font-medium">
-                {mockReservation.travelDate}
-              </p>
+              <p className="text-base font-medium">{mockReservation.travelDate}</p>
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Return Date</p>
-              <p className="text-base font-medium">
-                {mockReservation.returnDate}
-              </p>
+              <p className="text-base font-medium">{mockReservation.returnDate}</p>
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Duration</p>
-              <p className="text-base font-medium">
-                {mockReservation.packageDetails.duration} days
-              </p>
+              <p className="text-base font-medium">{mockReservation.packageDetails.duration} days</p>
             </div>
           </div>
         </div>
 
         {/* Package Details */}
-        <div className="lg:col-span-2 bg-white rounded-md p-4 shadow-sm border ">
+        <div className="lg:col-span-2 bg-card rounded-md p-4 shadow-sm border ">
           <div className="mb-4">
             <div className="flex items-center gap-2">
-              <Package className="h-5 w-5 text-orange-600" />
+              <Package className="h-5 w-5 text-primary" />
               Package Details
             </div>
-            <p className="text-base font-medium text-orange-600">
-              {mockReservation.packageName}
-            </p>
+            <p className="text-base font-medium text-primary">{mockReservation.packageName}</p>
           </div>
           <div className="space-y-4">
             <div className="grid gap-4 md:grid-cols-2">
@@ -137,26 +110,20 @@ export default function ReservationDetailPage() {
                 <p className="text-sm text-muted-foreground">Destination</p>
                 <div className="flex items-center gap-2">
                   <MapPin className="h-4 w-4 text-muted-foreground" />
-                  <p className="text-base font-medium">
-                    {mockReservation.destination}
-                  </p>
+                  <p className="text-base font-medium">{mockReservation.destination}</p>
                 </div>
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Accommodation</p>
-                <p className="text-base font-medium">
-                  {mockReservation.packageDetails.accommodation}
-                </p>
+                <p className="text-base font-medium">{mockReservation.packageDetails.accommodation}</p>
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Meals Included</p>
-                <p className="text-base font-medium">
-                  {mockReservation.packageDetails.mealsIncluded}
-                </p>
+                <p className="text-base font-medium">{mockReservation.packageDetails.mealsIncluded}</p>
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Total Price</p>
-                <div className="flex items-center gap-1 text-xl font-bold text-orange-600">
+                <div className="flex items-center gap-1 text-xl font-bold text-primary">
                   <DollarSign className="h-5 w-5" />
                   <span>{mockReservation.totalPrice.replace("$", "")}</span>
                 </div>
@@ -164,36 +131,27 @@ export default function ReservationDetailPage() {
             </div>
 
             <div>
-              <p className="text-sm font-medium text-muted-foreground mb-2">
-                Activities Included
-              </p>
+              <p className="text-sm font-medium text-muted-foreground mb-2">Activities Included</p>
               <div className="flex flex-wrap gap-2">
-                {mockReservation.packageDetails.activities.map(
-                  (activity, idx) => (
-                    <div
-                      key={idx}
-                      className="bg-orange-50 px-2 py-0.5 rounded-md"
-                    >
-                      {activity}
-                    </div>
-                  )
-                )}
+                {mockReservation.packageDetails.activities.map((activity, idx) => (
+                  <div key={idx} className="bg-primary/10 px-2 py-0.5 rounded-md text-primary-foreground">
+                    {activity}
+                  </div>
+                ))}
               </div>
             </div>
             <div>
-              <p className="text-sm font-medium text-muted-foreground mb-1">
-                Special Requests
-              </p>
+              <p className="text-sm font-medium text-muted-foreground mb-1">Special Requests</p>
               <p className="text-base">{mockReservation.specialRequests}</p>
             </div>
           </div>
         </div>
 
         {/* Payment Information */}
-        <div className="lg:col-span-2 bg-white rounded-md p-4 shadow-sm border ">
+        <div className="lg:col-span-2 bg-card rounded-md p-4 shadow-sm border ">
           <div className="mb-4">
             <div className="flex items-center gap-2">
-              <DollarSign className="h-5 w-5 text-orange-600" />
+              <DollarSign className="h-5 w-5 text-primary" />
               Payment Information
             </div>
           </div>
@@ -201,28 +159,22 @@ export default function ReservationDetailPage() {
             <div className="grid gap-4 md:grid-cols-3">
               <div>
                 <p className="text-sm text-muted-foreground">Payment Method</p>
-                <p className="text-base font-medium">
-                  {mockReservation.paymentMethod}
-                </p>
+                <p className="text-base font-medium">{mockReservation.paymentMethod}</p>
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Payment Status</p>
-                <div className="bg-green-600 text-white hover:bg-green-700 w-fit px-1 rounded-sm">
-                  Paid
-                </div>
+                <div className="bg-accent text-accent-foreground hover:opacity-90 w-fit px-1 rounded-sm">Paid</div>
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Total Amount</p>
-                <p className="text-xl font-bold text-orange-600">
-                  {mockReservation.totalPrice}
-                </p>
+                <p className="text-xl font-bold text-primary">{mockReservation.totalPrice}</p>
               </div>
             </div>
           </div>
         </div>
         {/* Action Buttons */}
         <div className="flex gap-3">
-          <Button className="bg-orange-600 hover:bg-orange-800 text-orange-50">
+          <Button className="bg-primary hover:opacity-90 text-primary-foreground">
             <Mail className="mr-2 h-4 w-4" />
             Send Confirmation Email
           </Button>

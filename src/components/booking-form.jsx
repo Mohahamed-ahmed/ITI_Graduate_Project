@@ -25,7 +25,7 @@ export default function BookingForm() {
               <input
                 placeholder="John Doe"
                 required
-                className="w-full rounded-xl px-4 py-3 text-sm bg-background text-foreground border border-border focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 shadow-sm hover:shadow-md transition-shadow"
+                className="w-full rounded-xl px-4 py-3 text-sm bg-background text-foreground border border-border focus:outline-none focus:ring-2 focus:ring-ring focus:border-ring shadow-sm hover:shadow-md transition-shadow"
               />
             </Form.Control>
             <Form.Message match="valueMissing" className="text-xs mt-1 text-destructive">
@@ -42,7 +42,7 @@ export default function BookingForm() {
                   type="email"
                   placeholder="john@example.com"
                   required
-                  className="w-full rounded-xl px-4 py-3 text-sm bg-background text-foreground border border-border focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 shadow-sm hover:shadow-md transition-shadow"
+                  className="w-full rounded-xl px-4 py-3 text-sm bg-background text-foreground border border-border focus:outline-none focus:ring-2 focus:ring-ring focus:border-ring shadow-sm hover:shadow-md transition-shadow"
                 />
               </Form.Control>
               <Form.Message match="valueMissing" className="text-xs mt-1 text-destructive">
@@ -60,7 +60,7 @@ export default function BookingForm() {
                   type="tel"
                   placeholder="+1 (555) 000-0000"
                   required
-                  className="w-full rounded-xl px-4 py-3 text-sm bg-background text-foreground border border-border focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 shadow-sm hover:shadow-md transition-shadow"
+                  className="w-full rounded-xl px-4 py-3 text-sm bg-background text-foreground border border-border focus:outline-none focus:ring-2 focus:ring-ring focus:border-ring shadow-sm hover:shadow-md transition-shadow"
                 />
               </Form.Control>
               <Form.Message match="valueMissing" className="text-xs mt-1 text-destructive">
@@ -76,7 +76,7 @@ export default function BookingForm() {
             <Form.Label className="text-sm font-semibold mb-1.5 text-foreground">Guests</Form.Label>
             <div className="relative">
               <Form.Control asChild>
-                <select className="w-full rounded-xl px-4 py-3 text-sm bg-background text-foreground border border-border appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 shadow-sm hover:shadow-md transition-shadow">
+                <select className="w-full rounded-xl px-4 py-3 text-sm bg-background text-foreground border border-border appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-ring focus:border-ring shadow-sm hover:shadow-md transition-shadow">
                   {[1, 2, 4, 6, 8].map((n) => (
                     <option key={n} value={n}>
                       {n} {n === 1 ? "Guest" : "Guests"}
@@ -95,7 +95,7 @@ export default function BookingForm() {
                 selected={date}
                 onChange={setDate}
                 placeholderText="Pick a date"
-                className="w-full rounded-xl px-4 py-3 text-sm bg-background text-foreground border border-border focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 shadow-sm hover:shadow-md transition-shadow"
+                className="w-full rounded-xl px-4 py-3 text-sm bg-background text-foreground border border-border focus:outline-none focus:ring-2 focus:ring-ring focus:border-ring shadow-sm hover:shadow-md transition-shadow"
                 calendarClassName="rounded-2xl shadow-2xl border border-border p-2 bg-background text-foreground"
                 popperClassName="z-50"
               />
@@ -111,7 +111,7 @@ export default function BookingForm() {
             <textarea
               rows={3}
               placeholder="Any dietary requirements or accessibility needs?"
-              className="w-full rounded-xl px-4 py-3 text-sm bg-background text-foreground border border-border focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 shadow-sm hover:shadow-md resize-none transition-shadow"
+              className="w-full rounded-xl px-4 py-3 text-sm bg-background text-foreground border border-border focus:outline-none focus:ring-2 focus:ring-ring focus:border-ring shadow-sm hover:shadow-md resize-none transition-shadow"
             />
           </Form.Control>
         </Form.Field>

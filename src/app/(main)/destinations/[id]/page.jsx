@@ -8,8 +8,8 @@ export default function DestinationDetailPage() {
       <section className="container mx-auto py-8 md:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8">
-            <nav className="mb-3 text-sm text-muted-(--foreground)">
-              <Link href="/destinations" className="text-red-500 hover:underline">
+            <nav className="mb-3 text-sm text-muted-foreground">
+              <Link href="/destinations" className="text-primary hover:underline">
                 Destinations
               </Link>
               <span className="mx-2">/</span>
@@ -32,7 +32,7 @@ export default function DestinationDetailPage() {
               priority
             />
             <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
-            <div className="absolute bottom-4 left-4 text-white pointer-events-none">
+            <div className="absolute bottom-4 left-4 text-primary-foreground pointer-events-none">
               <h3 className="text-lg font-semibold drop-shadow">Nile Sunset — Aswan</h3>
               <p className="text-sm opacity-90 drop-shadow">Golden hour views and traditional felucca rides</p>
             </div>

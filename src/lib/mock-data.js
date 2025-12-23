@@ -184,8 +184,8 @@ export const destinations = [
       },
     ],
   },
-]
+];
 
 export const allPackages = destinations.flatMap((dest) =>
-  dest.packages.map((pkg) => ({ ...pkg, destinationId: dest.id, destinationName: dest.name })),
-)
+  dest.packages.map((pkg) => ({ ...pkg, destinationId: dest.id, destinationName: dest.name }))
+);
