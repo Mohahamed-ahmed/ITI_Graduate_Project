@@ -1,37 +1,55 @@
 'use client';
+
 import { useState } from 'react';
 import { useRegister } from '@/hooks/use-auth';
 import Link from 'next/link';
 
 export default function SignupPage() {
-  const [userName, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [formData, setFormData] = useState({ userName: '', email: '', password: '', confirmPassword: '' });
+
   const registerMutation = useRegister();
+
+  function handleChange(e) {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  }
+
   const SignupSubmitHandler = (e) => {
     e.preventDefault();
-    registerMutation.mutate({ email, userName, password, confirmPassword });
+
+    const { userName, email, password, confirmPassword } = formData;
+
+    if (password !== confirmPassword) {
+      alert('Passwords do not match!');
+      return;
+    }
+
+    registerMutation.mutate({ userName, email, password, confirmPassword });
   };
+
   return (
     <main className="min-h-screen flex items-center justify-center bg-background px-4">
       <div className="w-full max-w-md">
-        <form className="bg-card p-6 rounded-lg shadow-md">
+        <form onSubmit={SignupSubmitHandler} className="bg-card p-6 rounded-lg shadow-md border border-border">
           <h1 className="text-3xl font-bold mb-6 text-center">Signup</h1>
+
+          {/* Name Input */}
           <div className="mb-4">
-            <label htmlFor="name" className="block text-foreground font-semibold mb-2">
+            <label htmlFor="userName" className="block text-foreground font-semibold mb-2">
               Name
             </label>
             <input
               type="text"
-              id="name"
-              className="w-full border border-border p-2 rounded-md"
+              id="userName"
+              name="userName"
+              required
+              className="w-full border border-border p-2 rounded-md bg-background"
               placeholder="Enter your name"
-              value={userName}
-              onChange={(e) => setName(e.target.value)}
+              value={formData.userName}
+              onChange={handleChange}
             />
           </div>
 
+          {/* Email Input */}
           <div className="mb-4">
             <label htmlFor="email" className="block text-foreground font-semibold mb-2">
               Email
@@ -39,13 +57,16 @@ export default function SignupPage() {
             <input
               type="email"
               id="email"
-              className="w-full border border-border p-2 rounded-md"
+              name="email"
+              required
+              className="w-full border border-border p-2 rounded-md bg-background"
               placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={formData.email}
+              onChange={handleChange}
             />
           </div>
 
+          {/* Password Input */}
           <div className="mb-6">
             <label htmlFor="password" className="block text-foreground font-semibold mb-2">
               Password
@@ -53,36 +74,42 @@ export default function SignupPage() {
             <input
               type="password"
               id="password"
-              className="w-full border border-border p-2 rounded-md"
+              name="password"
+              required
+              className="w-full border border-border p-2 rounded-md bg-background"
               placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={formData.password}
+              onChange={handleChange}
             />
           </div>
 
+          {/* Confirm Password Input */}
           <div className="mb-6">
-            <label htmlFor="confirm-password" className="block text-foreground font-semibold mb-2">
+            <label htmlFor="confirmPassword" className="block text-foreground font-semibold mb-2">
               Password Confirmation
             </label>
             <input
               type="password"
-              id="confirm-password"
-              className="w-full border border-border p-2 rounded-md"
+              id="confirmPassword"
+              name="confirmPassword"
+              required
+              className="w-full border border-border p-2 rounded-md bg-background"
               placeholder="Confirm your password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
+              value={formData.confirmPassword}
+              onChange={handleChange}
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-primary text-primary-foreground p-2 cursor-pointer rounded-md hover:opacity-90 transition duration-300"
-            onClick={SignupSubmitHandler}
+            disabled={registerMutation.isPending}
+            className="w-full bg-primary text-primary-foreground p-2 rounded-md hover:opacity-90 transition duration-300 disabled:opacity-50"
           >
             {registerMutation.isPending ? 'Loading...' : 'Signup'}
           </button>
-          <div>
-            <Link href="/login" className="text-primary-black hover:underline mt-4 block text-center">
+
+          <div className="mt-4 text-center">
+            <Link href="/login" className="text-sm hover:underline">
               Already have an account? Login
             </Link>
           </div>
