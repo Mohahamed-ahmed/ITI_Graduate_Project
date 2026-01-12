@@ -12,7 +12,6 @@ export default function PackageDetailPage() {
   const packageData = data?.data;
   console.log("Package data in detail page:", packageData);
   const router = useRouter();
-  // const pkg = allPackages.find((p) => p.id === params.id);
 
   if (isLoading) {
     return (
@@ -94,14 +93,14 @@ export default function PackageDetailPage() {
                   </div>
 
                   <Link href={`/book-form/${packageData.id}`}>
-                    <button className="w-full bg-card text-primary font-bold py-3 rounded-lg hover:shadow-lg transition mb-4">
+                    <button className="w-full cursor-pointer bg-card text-primary font-bold py-3 rounded-lg hover:shadow-lg transition mb-4">
                       Book Now
                     </button>
                   </Link>
 
                   <button
                     onClick={() => router.back()}
-                    className="w-full border-2 border-card text-white font-semibold py-3 rounded-lg hover:bg-muted/70 transition"
+                    className="w-full border text-white font-semibold py-3 rounded-lg hover:bg-muted/70 transition"
                   >
                     View Other Packages
                   </button>

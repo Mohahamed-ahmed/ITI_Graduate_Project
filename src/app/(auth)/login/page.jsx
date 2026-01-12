@@ -51,7 +51,7 @@ export default function LoginPage() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-background px-4">
       <div className="w-full max-w-md">
-        <form className="bg-card p-6 rounded-lg shadow-md">
+        <form className="bg-card p-6 rounded-lg shadow-sm dark:shadow-[0_4px_20px_rgba(255,255,255,0.1)] dark:border-gray-700">
           <h1 className="text-3xl font-bold mb-6 text-center">Login</h1>
           <div className="mb-4">
             <label htmlFor="email" className="block text-foreground font-semibold mb-2">

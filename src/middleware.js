@@ -5,10 +5,6 @@ export function middleware(request) {
   const email = request.cookies.get("email")?.value;
   const pathname = request.nextUrl.pathname;
 
-  console.log("Middleware - Path:", pathname);
-  console.log("Middleware - Token:", token ? "exists" : "missing");
-  console.log("Middleware - Email:", email);
-
   // Protect dashboard routes - admin only
   if (pathname.startsWith("/dashboard")) {
     if (!token) {
@@ -16,7 +12,7 @@ export function middleware(request) {
       return NextResponse.redirect(new URL("/login", request.url));
     }
     
-    if (email !== "admin@admin.com") {
+    if (!email.startsWith('admin')) {
       console.log("Middleware - Redirecting to home (not admin):", email);
       return NextResponse.redirect(new URL("/", request.url));
     }

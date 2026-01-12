@@ -74,7 +74,7 @@ export default function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter className="px-6 py-4">
-        <LogoutButton className="w-full text-black text-md cursor-pointer transition duration-300 hover:bg-orange-50 py-2 rounded-md"/>
+        <LogoutButton className="w-full dark:bg-white text-black text-md cursor-pointer transition duration-300 bg-orange-50 dark:hover:bg-gray-100 py-2 rounded-md"/>
       </SidebarFooter>
     </Sidebar>
   );
