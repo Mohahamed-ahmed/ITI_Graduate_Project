@@ -57,7 +57,7 @@ export default function SignupPage() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-background px-4">
       <div className="w-full max-w-md">
-        <form onSubmit={SignupSubmitHandler} className="bg-card p-6 rounded-lg shadow-md border border-border">
+        <form onSubmit={SignupSubmitHandler} className="bg-card p-6 rounded-lg shadow-sm dark:shadow-[0_4px_20px_rgba(255,255,255,0.1)] dark:border-gray-700 border border-border">
           <h1 className="text-3xl font-bold mb-6 text-center">Signup</h1>
 
           {/* Name Input */}

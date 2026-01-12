@@ -6,7 +6,7 @@ import { Edit, Trash2, Calendar } from 'lucide-react';
 
 export default function PackageCard({ pkg, onDelete, showActions = false }) {
   return (
-    <div className="rounded-xl overflow-hidden shadow-sm border border-border bg-card hover:shadow-md transition-all flex flex-col h-full">
+    <div className="rounded-xl overflow-hidden shadow-sm dark:shadow-[0_4px_20px_rgba(255,255,255,0.1)] dark:border-gray-700 border border-border bg-card hover:shadow-md transition-all flex flex-col h-full">
       <div className="relative h-48 w-full">
         <Image
           src={pkg.image?.url || 'https://placehold.co/600x400?text=No+Image'}

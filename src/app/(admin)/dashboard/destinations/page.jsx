@@ -19,8 +19,6 @@ export default function ManageDestinationsPage() {
           Add Destination
         </Link>
       </div>
-
-      {/* Grid or Empty State */}
       <DestinationList />
     </div>
   );

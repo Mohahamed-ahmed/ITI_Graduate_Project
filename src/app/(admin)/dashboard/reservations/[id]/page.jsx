@@ -37,7 +37,7 @@ export default function ReservationDetailPage() {
     <div>
       <h1 className="text-2xl font-bold mb-4">Reservation Details</h1>
       <div className="grid gap-6 lg:grid-cols-3">
-        <div className="bg-card rounded-md p-4 shadow-sm border lg:col-span-1">
+        <div className="bg-card rounded-md p-4 shadow-sm dark:shadow-[0_4px_20px_rgba(255,255,255,0.1)] dark:border-gray-700 border lg:col-span-1">
           <div className="mb-4">
             <div className="flex items-center gap-2">
               <User className="h-5 w-5 text-primary" />
@@ -58,7 +58,7 @@ export default function ReservationDetailPage() {
             </div>
           </div>
         </div>
-        <div className="bg-card rounded-md p-4 shadow-sm border lg:col-span-2">
+        <div className="bg-card rounded-md p-4 shadow-sm dark:shadow-[0_4px_20px_rgba(255,255,255,0.1)] dark:border-gray-700 border lg:col-span-2">
           <div className="mb-4">
             <div className="flex items-center gap-2">
               <Calendar className="h-5 w-5 text-primary" />
@@ -102,7 +102,7 @@ export default function ReservationDetailPage() {
           </div>
         </div>
 
-        <div className="lg:col-span-3 bg-card rounded-md p-4 shadow-sm border ">
+        <div className="lg:col-span-3 bg-card rounded-md p-4 shadow-sm dark:shadow-[0_4px_20px_rgba(255,255,255,0.1)] dark:border-gray-700 border ">
           <div className="mb-4">
             <div className="flex items-center gap-2">
               <Package className="h-5 w-5 text-primary" />
@@ -153,7 +153,7 @@ export default function ReservationDetailPage() {
           </div>
         </div>
 
-        <div className="lg:col-span-3 bg-card rounded-md p-4 shadow-sm border ">
+        <div className="lg:col-span-3 bg-card rounded-md p-4 shadow-sm dark:shadow-[0_4px_20px_rgba(255,255,255,0.1)] dark:border-gray-700 border ">
           <div className="mb-4">
             <div className="flex items-center gap-2">
               <DollarSign className="h-5 w-5 text-primary" />

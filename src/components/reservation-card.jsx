@@ -6,6 +6,7 @@ import { useGetAllBookings } from "@/hooks/use-bookings";
 export default function ReservationCard({ reservation }) {
   const {data,isLoading,isError} = useGetAllBookings()
   const reservations = data?.data || [];
+  console.log("Reservations Data:", reservations);
 
   if(isLoading){
     return (
@@ -26,11 +27,11 @@ export default function ReservationCard({ reservation }) {
   return (
     <>
     {reservations.map((reservation)=>(
-      <div key={reservation.id} className="border rounded-lg p-4 shadow-sm mb-4 bg-card">
+      <div key={reservation.id} className="border rounded-lg p-4 shadow-sm dark:shadow-[0_4px_20px_rgba(255,255,255,0.1)] dark:border-gray-700 mb-4 bg-card">
         <div className="flex justify-between items-center mb-4">
           <div className="flex items-center gap-2">
             <User className="text-primary w-6 h-6" />
-            <h2 className="text-xl font-semibold">Reservation </h2>
+            <h2 className="text-xl font-semibold">Reservation for {reservation.contact.name}</h2>
           </div>
           <div className="py-0.5 px-2 bg-primary rounded-md hover:opacity-90 transition">
             <p className="text-primary-foreground">Confirmed</p>

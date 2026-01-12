@@ -94,7 +94,7 @@ export default function BookingForm({packageData,totalPrice,setTotalPrice}) {
   }
 
   return (
-    <div className="mx-auto rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-border overflow-hidden bg-card">
+    <div className="mx-auto rounded-3xl shadow-sm dark:shadow-[0_4px_20px_rgba(255,255,255,0.1)] dark:border-gray-700 border border-border overflow-hidden bg-card">
       <div className="p-8 border-b border-border bg-background">
         <h1 className="text-2xl font-bold tracking-tight text-foreground">
           Complete Your Booking
@@ -168,16 +168,6 @@ export default function BookingForm({packageData,totalPrice,setTotalPrice}) {
               <ChevronDown className="absolute right-3 top-3.5 h-4 w-4 text-muted-foreground pointer-events-none" />
             </div>
           </div>
-        </div>
-        <div>
-          <label className="text-sm font-semibold mb-1.5 text-foreground block">
-            Special Requests
-          </label>
-          <textarea
-            rows={3}
-            placeholder="Any dietary requirements or accessibility needs?"
-            className="w-full rounded-xl px-4 py-3 text-sm bg-background text-foreground border border-border focus:outline-none focus:ring-2 focus:ring-ring focus:border-ring shadow-sm hover:shadow-md resize-none transition-shadow"
-          />
         </div>
         <button
           type="submit"

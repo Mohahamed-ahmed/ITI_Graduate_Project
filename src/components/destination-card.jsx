@@ -27,7 +27,7 @@ export default function DestinationCard({ destination, onDelete, showActions = f
   );
 
   return (
-    <div className="group flex flex-col h-full rounded-xl overflow-hidden border bg-card shadow-sm hover:shadow-md transition-all duration-300">
+    <div className="group flex flex-col h-full rounded-xl overflow-hidden border bg-card shadow-sm dark:shadow-[0_4px_20px_rgba(255,255,255,0.1)] dark:border-gray-700 hover:shadow-md transition-all duration-300">
       {showActions ? <div>{CardContent}</div> : <Link href={`/destinations/${destination?._id}`}>{CardContent}</Link>}
 
       {showActions && (
