@@ -36,8 +36,8 @@ export default function ReservationDetailPage() {
   return (
     <div>
       <h1 className="text-2xl font-bold mb-4">Reservation Details</h1>
-      <div className="grid gap-6 lg:grid-cols-2">
-        <div className="bg-card rounded-md p-4 shadow-sm border ">
+      <div className="grid gap-6 lg:grid-cols-3">
+        <div className="bg-card rounded-md p-4 shadow-sm border lg:col-span-1">
           <div className="mb-4">
             <div className="flex items-center gap-2">
               <User className="h-5 w-5 text-primary" />
@@ -56,16 +56,9 @@ export default function ReservationDetailPage() {
                 <p className="text-base">{userData?.data.email}</p>
               </div>
             </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Number of Guests</p>
-              <div className="flex items-center gap-2">
-                <Users className="h-4 w-4 text-muted-foreground" />
-                <p className="text-base">{reservation?.data.numberOfPeople} guests</p>
-              </div>
-            </div>
           </div>
         </div>
-        <div className="bg-card rounded-md p-4 shadow-sm border">
+        <div className="bg-card rounded-md p-4 shadow-sm border lg:col-span-2">
           <div className="mb-4">
             <div className="flex items-center gap-2">
               <Calendar className="h-5 w-5 text-primary" />
@@ -73,18 +66,43 @@ export default function ReservationDetailPage() {
             </div>
           </div>
           <div className="space-y-4">
-            <div>
-              <p className="text-sm text-muted-foreground">Booking Date</p>
-              <p className="text-base font-medium">{formattedDate}</p>
+            <div className="grid gap-4 md:grid-cols-2">
+              <div>
+                <p className="text-sm text-muted-foreground">Full Name</p>
+                <p className="text-base font-medium">{reservation?.data.contact.name}</p>
+              </div>
+              <div>
+                <p className="text-sm text-muted-foreground">Email</p>
+                <p className="text-base font-medium">{reservation?.data.contact.email}</p>
+              </div>
             </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Duration</p>
-              <p className="text-base font-medium">{packageData?.data.duration} days</p>
+            <div className="grid gap-4 md:grid-cols-2">
+              <div>
+                <p className="text-sm text-muted-foreground">Phone Number</p>
+                <p className="text-base font-medium">{reservation?.data.contact.phone}</p>
+              </div>
+              <div>
+                <p className="text-sm text-muted-foreground">Booking Date</p>
+                <p className="text-base font-medium">{formattedDate}</p>
+              </div>
+            </div>
+            <div className="grid gap-4 md:grid-cols-2">
+              <div>
+                <p className="text-sm text-muted-foreground">Duration</p>
+                <p className="text-base font-medium">{packageData?.data.duration} days</p>
+              </div>
+              <div>
+              <p className="text-sm text-muted-foreground">Number of Guests</p>
+                <div className="flex items-center gap-2">
+                  <Users className="h-4 w-4 text-muted-foreground" />
+                  <p className="text-base">{reservation?.data.numberOfPeople} guests</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="lg:col-span-2 bg-card rounded-md p-4 shadow-sm border ">
+        <div className="lg:col-span-3 bg-card rounded-md p-4 shadow-sm border ">
           <div className="mb-4">
             <div className="flex items-center gap-2">
               <Package className="h-5 w-5 text-primary" />
@@ -101,6 +119,13 @@ export default function ReservationDetailPage() {
               <div>
                 <p className="text-sm text-muted-foreground">Meals Included</p>
                 <p className="text-base font-medium">Breakfast & Dinner</p>
+              </div>
+              <div>
+                <p className="text-sm text-muted-foreground">Maximum Number of Guests</p>
+                <div className="flex items-center gap-2">
+                  <Users className="h-4 w-4 text-muted-foreground" />
+                  <p className="text-base font-medium">{packageData?.data.groupSize} guests</p>
+                </div>
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Price</p>
@@ -128,7 +153,7 @@ export default function ReservationDetailPage() {
           </div>
         </div>
 
-        <div className="lg:col-span-2 bg-card rounded-md p-4 shadow-sm border ">
+        <div className="lg:col-span-3 bg-card rounded-md p-4 shadow-sm border ">
           <div className="mb-4">
             <div className="flex items-center gap-2">
               <DollarSign className="h-5 w-5 text-primary" />

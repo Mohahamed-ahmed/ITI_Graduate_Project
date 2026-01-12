@@ -1,8 +1,15 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, CheckCircle2 } from "lucide-react";
 import { useCreateBooking } from "@/hooks/use-bookings";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 export default function BookingForm({packageData,totalPrice,setTotalPrice}) {
   useEffect(()=>{
@@ -15,6 +22,8 @@ export default function BookingForm({packageData,totalPrice,setTotalPrice}) {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [errors, setErrors] = useState({});
+  const [showSuccessDialog, setShowSuccessDialog] = useState(false);
+  const [bookingDetails, setBookingDetails] = useState(null);
   const createBookingMutation = useCreateBooking();
   const isFormValid =
     name.trim() !== "" &&
@@ -54,7 +63,7 @@ export default function BookingForm({packageData,totalPrice,setTotalPrice}) {
     }
     setErrors({});
 
-    createBookingMutation.mutate({
+    const bookingData = {
       packageId: packageData?.id,
       numberOfPeople: guests,
       totalPrice: totalPrice,
@@ -62,6 +71,24 @@ export default function BookingForm({packageData,totalPrice,setTotalPrice}) {
         name:name,
         email:email,
         phone:phone
+      }
+    };
+
+    createBookingMutation.mutate(bookingData, {
+      onSuccess: (data) => {
+        setBookingDetails({
+          name,
+          email,
+          guests,
+          packageName: packageData?.name,
+          totalPrice
+        });
+        setShowSuccessDialog(true);
+        setName("");
+        setEmail("");
+        setPhone("");
+        setGuests(1);
+        setTotalPrice(packageData?.price || 0);
       }
     })
   }
@@ -152,7 +179,6 @@ export default function BookingForm({packageData,totalPrice,setTotalPrice}) {
             className="w-full rounded-xl px-4 py-3 text-sm bg-background text-foreground border border-border focus:outline-none focus:ring-2 focus:ring-ring focus:border-ring shadow-sm hover:shadow-md resize-none transition-shadow"
           />
         </div>
-
         <button
           type="submit"
           onClick={bookingSubmitHandler}
@@ -167,6 +193,50 @@ export default function BookingForm({packageData,totalPrice,setTotalPrice}) {
           Confirm My Booking
         </button>
       </form>
+
+      <Dialog open={showSuccessDialog} onOpenChange={setShowSuccessDialog}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <div className="flex justify-center mb-4">
+              <div className="rounded-full bg-green-100 dark:bg-green-900/20 p-3">
+                <CheckCircle2 className="h-12 w-12 text-green-600 dark:text-green-400" />
+              </div>
+            </div>
+            <DialogTitle className="text-center text-2xl">
+              Booking Confirmed! 🎉
+            </DialogTitle>
+            <DialogDescription className="text-center pt-2">
+              Thank you for your booking. Have a wonderful trip!
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="mt-4 space-y-3 rounded-lg bg-muted/50 p-4">
+            <div className="flex justify-between text-sm">
+              <span className="text-muted-foreground">Name:</span>
+              <span className="font-medium">{bookingDetails?.name}</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span className="text-muted-foreground">Package:</span>
+              <span className="font-medium">{bookingDetails?.packageName}</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span className="text-muted-foreground">Guests:</span>
+              <span className="font-medium">{bookingDetails?.guests}</span>
+            </div>
+            <div className="flex justify-between text-sm border-t border-border pt-3">
+              <span className="text-muted-foreground">Total Price:</span>
+              <span className="font-bold text-lg">${bookingDetails?.totalPrice}</span>
+            </div>
+          </div>
+
+          <button
+            onClick={() => setShowSuccessDialog(false)}
+            className="w-full mt-4 py-3 rounded-xl font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-colors shadow-sm"
+          >
+            Close
+          </button>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

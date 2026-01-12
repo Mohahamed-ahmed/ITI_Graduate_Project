@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: 'EgyptGo',
+  icons:{
+    icon: "../favicon.svg"
+  },
   description: "Discover Egypt's Wonders",
 };
 

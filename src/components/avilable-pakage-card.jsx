@@ -2,10 +2,12 @@
 import { useGetAllPackages } from "@/hooks/use-packages";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function AvailablePackageCard({destinationId, destinationImage}) {
   const { data:packagesData, isLoading, isError } = useGetAllPackages(destinationId);
   const packages = packagesData?.data || [];
+  const router = useRouter();
   if(isLoading){
     return <div className="text-center py-20">Loading...</div>;
   }
@@ -16,6 +18,7 @@ export default function AvailablePackageCard({destinationId, destinationImage}) 
         key={pkg.id}
         role="button"
         tabIndex={0}
+        onClick={() => router.push(`/packs/${pkg.id}`)}
         className="bg-card rounded-lg overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer group h-full"
       >
         <div className="relative h-64 overflow-hidden bg-muted">

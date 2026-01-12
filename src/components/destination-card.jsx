@@ -18,9 +18,10 @@ export default function DestinationCard({ destination, onDelete, showActions = f
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
       </div>
 
-      <div className="flex flex-col flex-grow p-5">
+      <div className="flex flex-col grow p-5">
         <h3 className="text-xl font-bold tracking-tight text-foreground line-clamp-1">{destination?.name}</h3>
         <p className="text-muted-foreground text-sm line-clamp-3 leading-relaxed mb-6">{destination?.description}</p>
+        <p className="text-muted-foreground font-semibold text-md line-clamp-3 leading-relaxed mb-1">{destination?.packagesCount} packages</p>
       </div>
     </>
   );

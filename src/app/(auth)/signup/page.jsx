@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useRegister } from "@/hooks/use-auth";
 import Link from "next/link";
-
+import { redirect } from "next/navigation";
 export default function SignupPage() {
   const [userName, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -43,10 +43,13 @@ export default function SignupPage() {
     registerMutation.mutate(
       {email,userName,password,confirmPassword},
       {
+        onSuccess:()=>{
+          redirect('/login');
+        },
         onError:(error)=>{
-          if(error.response?.data.statusCode === 400){
-            setServerError(error.response.data.message || ["Registration failed. Please try again."]);
-        }
+          const message =
+          error.response?.data?.message || "Registration failed. Please try again.";
+          setServerError([message])
         }
       }
     );
@@ -67,7 +70,7 @@ export default function SignupPage() {
               id="userName"
               name="userName"
               required
-              className="w-full border border-border p-2 rounded-md bg-background"
+              className="w-full border border-border p-2 rounded-md"
               placeholder="Enter your name"
               value={userName}
               onChange={(e)=>setName(e.target.value)}
@@ -85,7 +88,7 @@ export default function SignupPage() {
               id="email"
               name="email"
               required
-              className="w-full border border-border p-2 rounded-md bg-background"
+              className="w-full border border-border p-2 rounded-md"
               placeholder="Enter your email"
               value={email}
               onChange={(e)=>setEmail(e.target.value)}
@@ -103,7 +106,7 @@ export default function SignupPage() {
               id="password"
               name="password"
               required
-              className="w-full border border-border p-2 rounded-md bg-background"
+              className="w-full border border-border p-2 rounded-md"
               placeholder="Enter your password"
               value={password}
               onChange={(e)=>setPassword(e.target.value)}
@@ -121,7 +124,7 @@ export default function SignupPage() {
               id="confirmPassword"
               name="confirmPassword"
               required
-              className="w-full border border-border p-2 rounded-md bg-background"
+              className="w-full border border-border p-2 rounded-md"
               placeholder="Confirm your password"
               value={confirmPassword}
               onChange={(e)=>setConfirmPassword(e.target.value)}
@@ -132,7 +135,6 @@ export default function SignupPage() {
           <button
             type="submit"
             className="w-full bg-primary text-primary-foreground p-2 cursor-pointer rounded-md hover:opacity-90 transition duration-300"
-            onClick={SignupSubmitHandler}
             disabled={password !== confirmPassword}
           >
             {registerMutation.isPending ? "Loading..." : "Signup"}

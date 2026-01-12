@@ -3,6 +3,9 @@ import Providers from "@/components/providers";
 
 export const metadata = {
   title: "Admin Dashboard",
+  icons:{
+    icon: "./favicon.svg"
+  },
   description: "Admin dashboard application",
 };
 
