@@ -7,10 +7,12 @@ import PackageCard from './package-card';
 
 export default function PackageList() {
 
-  const { data: packageData, isLoading, isError } = useGetFullPackages();
+  const { data, isLoading, isError } = useGetFullPackages();
   const deleteMutation = useDeletePackage();
 
-  const packages = packageData?.data || [];
+  const packages = data?.packages || [];
+
+  console.log("PackageList - Fetched packages:", packages);
 
   const handleDelete = async (id) => {
     deleteMutation.mutate(id);
@@ -51,7 +53,7 @@ export default function PackageList() {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {packages.map((pkg) => (
-            <PackageCard key={pkg.id} pkg={pkg} onDelete={handleDelete} showActions />
+            <PackageCard key={pkg._id} pkg={pkg} onDelete={handleDelete} showActions />
           ))}
         </div>
       )}

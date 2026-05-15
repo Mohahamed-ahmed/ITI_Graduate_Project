@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useQueryClient } from "@tanstack/react-query";
-import { createBooking,getAllBookings,getBookingById } from "@/services/booking";
+import { createBooking, deleteBooking, getAllBookings, getBookingById, updateBookingStatus } from "@/services/booking";
 
 export function useGetAllBookings(){
     return useQuery({
@@ -38,6 +38,34 @@ export function useCreateBooking(){
         },
         onError:(error)=>{
             console.error("Failed to create booking", error);
+        }
+    })
+}
+
+export function useUpdateBookingStatus(){
+    const queryClient = useQueryClient();
+    return useMutation({
+        mutationFn: updateBookingStatus,
+        onSuccess:(data)=>{
+            queryClient.invalidateQueries({queryKey:['bookings']})
+            console.log("Booking status updated successfully", data);
+        },
+        onError:(error)=>{
+            console.error("Failed to update booking status", error);
+        }
+    })
+}
+
+export function useDeleteBooking(){
+    const queryClient = useQueryClient();
+    return useMutation({
+        mutationFn: deleteBooking,
+        onSuccess:(data)=>{
+            queryClient.invalidateQueries({queryKey:['bookings']})
+            console.log("Booking deleted successfully", data);
+        },
+        onError:(error)=>{
+            console.error("Failed to delete booking", error);
         }
     })
 }

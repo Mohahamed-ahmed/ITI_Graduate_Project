@@ -20,9 +20,9 @@ export default function DestinationForm({ id }) {
 
   useEffect(()=>{
     if(destination){
-      setName(destination.data.name);
-      setDescription(destination.data.description);
-      setImagePreview(destination.data.image.url);
+      setName(destination.destination.name);
+      setDescription(destination.destination.description);
+      setImagePreview(destination.destination.image);
     }
   },[destination])
 

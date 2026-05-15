@@ -9,7 +9,7 @@ export default function BookingSummary({packageData, totalPrice}) {
         <div className="space-y-4 pb-4 border-b border-border/20">
           <div>
             <p className="text-sm text-muted-background">Package</p>
-            <p className="font-semibold">Aswan & Nubian Adventure</p>
+            <p className="font-semibold">{packageData?.name}</p>
           </div>
           <div>
             <p className="text-sm text-muted-background">Duration</p>

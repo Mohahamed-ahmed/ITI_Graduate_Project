@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 
 export default function AvailablePackageCard({destinationId, destinationImage}) {
   const { data:packagesData, isLoading, isError } = useGetAllPackages(destinationId);
-  const packages = packagesData?.data || [];
+  const packages = packagesData?.packages || [];
   const router = useRouter();
   if(isLoading){
     return <div className="text-center py-20">Loading...</div>;
@@ -15,15 +15,15 @@ export default function AvailablePackageCard({destinationId, destinationImage}) 
     <>
     {packages.map((pkg)=>(
       <div
-        key={pkg.id}
+        key={pkg._id}
         role="button"
         tabIndex={0}
-        onClick={() => router.push(`/packs/${pkg.id}`)}
+        onClick={() => router.push(`/packs/${pkg._id}`)}
         className="bg-card rounded-lg overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer group h-full"
       >
         <div className="relative h-64 overflow-hidden bg-muted">
           <Image
-            src={pkg.image.url}
+            src={pkg.image}
             alt="Package Image"
             fill
             className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
@@ -38,7 +38,7 @@ export default function AvailablePackageCard({destinationId, destinationImage}) 
           </div>
           <div className="text-xs text-muted-foreground">
             <p className="mb-2">Group Size {pkg.groupSize}</p>
-            <Link href={`/packs/${pkg.id}`}>
+            <Link href={`/packs/${pkg._id}`}>
               <p className="text-primary font-semibold">View Details →</p>
             </Link>
           </div>

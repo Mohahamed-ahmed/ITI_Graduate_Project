@@ -11,7 +11,8 @@ export default function BookFormPage() {
   const params = useParams();
   const id = params.id;
   const { data, isLoading, isError } = useGetPackageById(id);
-  const packageData = data?.data;
+  console.log("Package data in booking form page:", data);
+  const packageData = data?.package;
   console.log("Package data in booking summary:", packageData);
   const [totalPrice, setTotalPrice] = useState(0);
 

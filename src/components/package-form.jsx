@@ -18,6 +18,7 @@ export default function PackageForm({ id }) {
   console.log(id)
 
   const { data: packageData } = useGetPackageById(id);
+  console.log("Package data in form:", packageData);
   const { data: destinationsData } = useGetAllDestinations();
 
   const createPackage = useCreatePackage();
@@ -36,8 +37,8 @@ export default function PackageForm({ id }) {
   });
 
   useEffect(() => {
-    if (packageData?.data) {
-      const p = packageData.data;
+    if (packageData?.package) {
+      const p = packageData.package;
       setForm({
         name: p.name,
         duration: p.duration,
@@ -47,7 +48,7 @@ export default function PackageForm({ id }) {
         activities: p.included.join(", "),
         description: p.description,
         image: null,
-        imagePreview: p.image?.url || null,
+        imagePreview: p.image || null,
       });
     }
   }, [packageData]);

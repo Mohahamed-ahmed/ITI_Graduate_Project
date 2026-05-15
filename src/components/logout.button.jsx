@@ -1,14 +1,14 @@
 'use client';
 import { useRouter } from "next/navigation";
+import { useLogout } from "@/hooks/use-auth";
 
 export default function LogoutButton({ className }) {
   const router = useRouter();
+  const { mutate: logoutMutation } = useLogout();
 
   const logoutHandler = () => {
-    document.cookie = "email=; Max-Age=0; path=/";
-    document.cookie = "token=; Max-Age=0; path=/";
-    localStorage.removeItem("token");
-    router.push("/login");
+    logoutMutation();
+    router.push('/login');
   };
 
   return (

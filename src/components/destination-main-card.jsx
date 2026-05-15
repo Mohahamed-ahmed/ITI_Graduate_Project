@@ -5,7 +5,8 @@ import { useGetAllDestinations } from "@/hooks/use-destinations";
 
 export function DestinationMainCard() {
   const { data, isLoading, isError } = useGetAllDestinations();
-  const destinations = data?.data || [];
+  console.log("DestinationMainCard - Fetched data:", data);
+  const destinations = data?.destinations || [];
   console.log("Destinations data in main card:", destinations);
 
   if(isLoading){
@@ -31,7 +32,7 @@ export function DestinationMainCard() {
           <div className="bg-card rounded-lg overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer group h-full">
             <div className="relative h-80 overflow-hidden bg-muted">
               <Image
-                src={destination?.image.url}
+                src={destination?.image}
                 alt={destination?.name}
                 fill
                 className="object-cover group-hover:scale-110 transition duration-300"

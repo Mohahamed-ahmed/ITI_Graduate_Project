@@ -9,7 +9,7 @@ export default function DestinationCard({ destination, onDelete, showActions = f
     <>
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted">
         <Image
-          src={destination?.image?.url || 'https://placehold.co/600x400?text=No+Image'}
+          src={destination?.image || 'https://placehold.co/600x400?text=No+Image'}
           alt={destination?.name || 'Destination'}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -21,7 +21,7 @@ export default function DestinationCard({ destination, onDelete, showActions = f
       <div className="flex flex-col grow p-5">
         <h3 className="text-xl font-bold tracking-tight text-foreground line-clamp-1">{destination?.name}</h3>
         <p className="text-muted-foreground text-sm line-clamp-3 leading-relaxed mb-6">{destination?.description}</p>
-        <p className="text-muted-foreground font-semibold text-md line-clamp-3 leading-relaxed mb-1">{destination?.packagesCount} packages</p>
+        <p className="text-muted-foreground font-semibold text-md line-clamp-3 leading-relaxed mb-1">{5} packages</p>
       </div>
     </>
   );

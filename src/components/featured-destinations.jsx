@@ -8,8 +8,9 @@ export default async function FeaturedDestinations() {
     next: { revalidate: 86400 }, // Refresh data every 24 hours
     tags: ['destinations-list'], // Allow actions on the homepage to be reflected on the dashboard.
   });
-  const json = await res.json();
-  const destinations = json?.data?.slice(0, 3) || [];
+  const data = await res.json();
+  console.log(data.destinations)
+  const destinations = data?.destinations?.slice(0, 3) || [];
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

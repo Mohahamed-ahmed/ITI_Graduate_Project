@@ -7,9 +7,11 @@ import DestinationCard from '@/components/destination-card';
 
 export default function DestinationList() {
   const { data: destinationData, isLoading, isError } = useGetAllDestinations();
+  console.log("DestinationList - Fetched data:", destinationData);
   const deleteMutation = useDeleteDestination();
 
-  const destinations = destinationData?.data || [];
+  const destinations = destinationData?.destinations || [];
+  console.log("DestinationList - Fetched destinations:", destinations);
 
   const handleDelete = async (id) => {
     deleteMutation.mutate(id);

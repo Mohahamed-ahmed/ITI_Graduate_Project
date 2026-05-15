@@ -9,7 +9,7 @@ export default function DestinationDetailPage() {
   const params = useParams();
   // const { id } = params;
   const { data: destinationData, isLoading: isDestinationLoading, isError: isDestinationError } = useGetDestinationById(params.id);
-  const destination = destinationData?.data || {};
+  const destination = destinationData?.destination || {};
 
   if(isDestinationLoading){
     return <div className="text-center py-20">Loading...</div>;
@@ -38,9 +38,9 @@ export default function DestinationDetailPage() {
           </div>
 
           <div className="mb-12 rounded-lg overflow-hidden shadow-lg relative">
-            {destination.image?.url && (
+            {destination.image && (
               <Image
-                src={destination?.image.url}
+                src={destination?.image}
                 alt={destination.name}
                 width={1280}
                 height={720}
@@ -55,7 +55,7 @@ export default function DestinationDetailPage() {
               <h2 className="text-3xl font-bold text-foreground">Available Packages</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <AvailablePackageCard destinationId = {params.id} destinationImage={destination.image?.url} />
+              <AvailablePackageCard destinationId = {params.id} destinationImage={destination.image} />
             </div>
           </div>
         </div>

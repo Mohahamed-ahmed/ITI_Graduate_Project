@@ -11,6 +11,16 @@ export const getBookingById = async(id)=>{
 }
 
 export const createBooking = async(data)=>{
-    const response = await api.post('/bookings', data);
+    const response = await api.post('/book-package', data);
+    return response.data;
+}
+
+export const updateBookingStatus = async({id, status})=>{
+    const response = await api.put(`/update-booking/${id}`, { status });
+    return response.data;
+}
+
+export const deleteBooking = async(id)=>{
+    const response = await api.delete(`/delete-booking/${id}`);
     return response.data;
 }

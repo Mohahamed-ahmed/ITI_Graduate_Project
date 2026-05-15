@@ -6,6 +6,11 @@ export const createuser = async(data)=>{
 }
 
 export const getUserById = async(id)=>{
-    const response = await api.get(`/users/${id}`);
+    const response = await api.get(`/user/${id}`);
+    return response.data;
+}
+
+export const getProfile = async()=>{
+    const response = await api.get('/profile');
     return response.data;
 }

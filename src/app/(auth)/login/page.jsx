@@ -35,7 +35,7 @@ export default function LoginPage() {
       {
         onSuccess:(data)=>{
           setTimeout(() => {
-            if(email.startsWith("admin")){
+            if(data.role === "admin"){
               window.location.href = '/dashboard';
             }else{
               window.location.href = '/';

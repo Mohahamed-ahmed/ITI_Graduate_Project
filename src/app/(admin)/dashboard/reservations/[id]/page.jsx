@@ -12,11 +12,11 @@ export default function ReservationDetailPage() {
   const params = useParams();
   const {data:reservation, isLoading, isError} = useGetBookingById(params.id);
   console.log("Reservation data in detail page:", reservation);
-  const {data:userData, isLoading:userLoading, isError:userError} = useGetUserById(reservation?.data.userId);
+  const {data :userData, isLoading:userLoading, isError:userError} = useGetUserById(reservation?.booking.userId);
   console.log("User data in detail page:", userData);
-  const {data:packageData, isLoading:packageLoading, isError:packageError} = useGetPackageById(reservation?.data.packageId);
+  const {data:packageData, isLoading:packageLoading, isError:packageError} = useGetPackageById(reservation?.booking.packageId);
   console.log("Package data in detail page:", packageData);
-  const formattedDate = new Date(reservation?.data.createdAt)
+  const formattedDate = new Date(reservation?.booking.createdAt)
   .toLocaleDateString("en-GB");
   if(isLoading || userLoading){
     return (
@@ -47,13 +47,13 @@ export default function ReservationDetailPage() {
           <div className="space-y-4">
             <div>
               <p className="text-sm text-muted-foreground">Full Name</p>
-              <p className="text-base font-medium">{userData?.data.userName}</p>
+              <p className="text-base font-medium">{userData?.userData.name}</p>
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Email Address</p>
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-muted-foreground" />
-                <p className="text-base">{userData?.data.email}</p>
+                <p className="text-base">{userData?.userData.email}</p>
               </div>
             </div>
           </div>
@@ -69,17 +69,17 @@ export default function ReservationDetailPage() {
             <div className="grid gap-4 md:grid-cols-2">
               <div>
                 <p className="text-sm text-muted-foreground">Full Name</p>
-                <p className="text-base font-medium">{reservation?.data.contact.name}</p>
+                <p className="text-base font-medium">{reservation?.booking.contact.name}</p>
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Email</p>
-                <p className="text-base font-medium">{reservation?.data.contact.email}</p>
+                <p className="text-base font-medium">{reservation?.booking.contact.email}</p>
               </div>
             </div>
             <div className="grid gap-4 md:grid-cols-2">
               <div>
                 <p className="text-sm text-muted-foreground">Phone Number</p>
-                <p className="text-base font-medium">{reservation?.data.contact.phone}</p>
+                <p className="text-base font-medium">{reservation?.booking.contact.phone}</p>
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Booking Date</p>
@@ -89,13 +89,13 @@ export default function ReservationDetailPage() {
             <div className="grid gap-4 md:grid-cols-2">
               <div>
                 <p className="text-sm text-muted-foreground">Duration</p>
-                <p className="text-base font-medium">{packageData?.data.duration} days</p>
+                <p className="text-base font-medium">{packageData?.package.duration} days</p>
               </div>
               <div>
               <p className="text-sm text-muted-foreground">Number of Guests</p>
                 <div className="flex items-center gap-2">
                   <Users className="h-4 w-4 text-muted-foreground" />
-                  <p className="text-base">{reservation?.data.numberOfPeople} guests</p>
+                  <p className="text-base">{reservation?.booking.numberOfPeople} guests</p>
                 </div>
               </div>
             </div>
@@ -108,7 +108,7 @@ export default function ReservationDetailPage() {
               <Package className="h-5 w-5 text-primary" />
               Package Details
             </div>
-            <p className="text-base font-medium text-primary">{packageData?.data.name}</p>
+            <p className="text-base font-medium text-primary">{packageData?.package.name}</p>
           </div>
           <div className="space-y-4">
             <div className="grid gap-4 md:grid-cols-2">
@@ -124,14 +124,14 @@ export default function ReservationDetailPage() {
                 <p className="text-sm text-muted-foreground">Maximum Number of Guests</p>
                 <div className="flex items-center gap-2">
                   <Users className="h-4 w-4 text-muted-foreground" />
-                  <p className="text-base font-medium">{packageData?.data.groupSize} guests</p>
+                  <p className="text-base font-medium">{packageData?.package.groupSize} guests</p>
                 </div>
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Price</p>
                 <div className="flex items-center gap-1 text-xl font-bold text-primary">
                   <DollarSign className="h-5 w-5" />
-                  <span>{packageData?.data.price}</span>
+                  <span>{packageData?.package.price}</span>
                 </div>
               </div>
             </div>
@@ -139,7 +139,7 @@ export default function ReservationDetailPage() {
             <div>
               <p className="text-sm font-medium text-muted-foreground mb-2">Activities Included</p>
               <div className="flex flex-wrap gap-2">
-                {packageData?.data.included.map((activity, idx) => (
+                {packageData?.package.included.map((activity, idx) => (
                   <div key={idx} className="bg-primary/50 px-2 py-0.5 rounded-md text-primary-foreground">
                     {activity}
                   </div>
@@ -148,7 +148,7 @@ export default function ReservationDetailPage() {
             </div>
             <div>
               <p className="text-sm font-medium text-muted-foreground mb-1">Description</p>
-              <p className="text-base">{packageData?.data.description}</p>
+              <p className="text-base">{packageData?.package.description}</p>
             </div>
           </div>
         </div>
@@ -172,7 +172,7 @@ export default function ReservationDetailPage() {
               </div>
               <div>
                 <p className="text-sm text-muted-foreground mb-0.5">Total Amount</p>
-                <p className="text-xl font-bold text-primary">{reservation?.data.totalPrice}</p>
+                <p className="text-xl font-bold text-primary">{reservation?.booking.totalPrice}</p>
               </div>
             </div>
           </div>

@@ -64,7 +64,7 @@ export default function BookingForm({packageData,totalPrice,setTotalPrice}) {
     setErrors({});
 
     const bookingData = {
-      packageId: packageData?.id,
+      packageId: packageData?._id,
       numberOfPeople: guests,
       totalPrice: totalPrice,
       contact: {

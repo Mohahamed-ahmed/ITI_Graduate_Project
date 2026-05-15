@@ -9,7 +9,7 @@ export default function PackageCard({ pkg, onDelete, showActions = false }) {
     <div className="rounded-xl overflow-hidden shadow-sm dark:shadow-[0_4px_20px_rgba(255,255,255,0.1)] dark:border-gray-700 border border-border bg-card hover:shadow-md transition-all flex flex-col h-full">
       <div className="relative h-48 w-full">
         <Image
-          src={pkg.image?.url || 'https://placehold.co/600x400?text=No+Image'}
+          src={pkg.image || 'https://placehold.co/600x400?text=No+Image'}
           fill
           alt={pkg.name}
           className="object-cover hover:scale-105 transition-transform duration-500"
@@ -33,7 +33,7 @@ export default function PackageCard({ pkg, onDelete, showActions = false }) {
         {showActions && (
           <div className="flex gap-3 pt-4 border-t border-border mt-auto">
             <Link
-              href={`/dashboard/packs/edit-package/${pkg.id}`}
+              href={`/dashboard/packs/edit-package/${pkg._id}`}
               className="flex-1 bg-background text-foreground border border-border hover:bg-accent px-3 py-2 transition rounded-lg flex items-center justify-center text-sm font-medium"
             >
               <Edit className="mr-2 h-4 w-4" />
@@ -41,7 +41,7 @@ export default function PackageCard({ pkg, onDelete, showActions = false }) {
             </Link>
             <button
               type="button"
-              onClick={() => onDelete?.(pkg.id)}
+              onClick={() => onDelete?.(pkg._id)}
               className="flex-1 bg-background text-destructive border border-destructive/20 hover:bg-destructive/10 px-3 py-2 transition rounded-lg flex items-center justify-center text-sm font-medium cursor-pointer"
             >
               <Trash2 className="mr-2 h-4 w-4" />

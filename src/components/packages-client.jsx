@@ -13,6 +13,8 @@ export default function PackagesClient({
 }) {
   const [sortBy, setSortBy] = useState('name');
 
+  console.log("PackagesClient - Received packages:", packages);
+
   const sortedPackages = [...packages].sort((a, b) => {
     if (sortBy === 'price-low') return a.price - b.price;
     if (sortBy === 'price-high') return b.price - a.price;
@@ -47,7 +49,7 @@ export default function PackagesClient({
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {sortedPackages.map((pkg) => (
-            <Link key={pkg.id} href={`/packs/${pkg.id}`}>
+            <Link key={pkg._id} href={`/packs/${pkg._id}`}>
               <PackageCard pkg={pkg} />
             </Link>
           ))}

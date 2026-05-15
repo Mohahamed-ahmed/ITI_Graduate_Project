@@ -8,8 +8,9 @@ import { useGetPackageById } from "@/hooks/use-packages";
 
 export default function PackageDetailPage() {
   const params = useParams();
+  console.log(params)
   const { data, isLoading, isError } = useGetPackageById(params.id);
-  const packageData = data?.data;
+  const packageData = data?.package;
   console.log("Package data in detail page:", packageData);
   const router = useRouter();
 
@@ -41,7 +42,7 @@ export default function PackageDetailPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="md:col-span-2">
                 <Image
-                  src={packageData.image.url}
+                  src={packageData.image}
                   alt={packageData.name}
                   width={400}
                   height={384}
@@ -92,7 +93,7 @@ export default function PackageDetailPage() {
                     <p className="text-sm opacity-80 mt-1">per person</p>
                   </div>
 
-                  <Link href={`/book-form/${packageData.id}`}>
+                  <Link href={`/book-form/${packageData._id}`}>
                     <button className="w-full cursor-pointer bg-card text-primary font-bold py-3 rounded-lg hover:shadow-lg transition mb-4">
                       Book Now
                     </button>

@@ -57,7 +57,12 @@ export default function Header() {
                 Sign in
               </Link>
             ) : (
-              <LogoutButton className="hover:text-primary cursor-pointer" />
+              <div className="flex items-center gap-4">
+                <Link href="/profile" className="hover:text-primary transition">
+                  Profile
+                </Link>
+                <LogoutButton className="hover:text-primary cursor-pointer" />
+              </div>
             )}
             <ModeToggle />
           </div>
@@ -100,7 +105,16 @@ export default function Header() {
                     Sign in
                   </Link>
                 ) : (
-                  <LogoutButton className="hover:text-primary cursor-pointer" />
+                  <div className="flex flex-col gap-2">
+                    <Link
+                      href="/profile"
+                      onClick={closeMenu}
+                      className="block py-2 hover:bg-accent rounded-md transition"
+                    >
+                      Profile
+                    </Link>
+                    <LogoutButton className="hover:text-primary cursor-pointer text-left py-2" />
+                  </div>
                 )}
               </li>
             </ul>

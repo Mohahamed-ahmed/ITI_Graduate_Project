@@ -7,7 +7,7 @@ import {
 } from "./ui/select";
 
 export default function SelectMenu({ destinationsData, value, onChange }) {
-  const destinations = destinationsData?.data || [];
+  const destinations = destinationsData?.destinations || [];
 
   return (
     <Select value={value} onValueChange={onChange}>
